@@ -18,17 +18,13 @@
 		
 		- Is each item colour coded to help visually distinguish between items?
 		
-		- Can I choose to see the description?
+		- Can I open the PBI
 		
-		>[D] Description 
-				
-		- Can I choose to see the verification criteria?
-		
-		>[D] Description [V] Verification
+		>[O] Open
 		
 		- Can I choose to see the linked tasks in a table?
 		
-		>[D] Description [V] Verification [T] Tasks
+		>[O] Open [L] Linked Items
 		
 		- For each task can I see the ID, Title, Assigned to, iteration path, state, Remaining hours, Completed Hours
 		

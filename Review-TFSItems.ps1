@@ -1,6 +1,6 @@
 ﻿[CmdletBinding()]
 Param ( 
-        [Microsoft.TeamFoundation.WorkItemTracking.Client.WorkItemCollection]$TFSItems = $global:TFSBacklog
+        $TFSItems = $global:TFSBacklog
     )
 
 $i = 0
@@ -21,18 +21,27 @@ do {
             $i--
         }
         "A" {
-            .\View-TFSAllItems.ps1
+            .\View-TFSAllItems.ps1 $TFSItems
             read-host
         }
-        "D" {
-            $TFSItems[$i]["Description"] | Out-File .\description.htm
-            Invoke-Expression .\description.htm
-            start-sleep 2
-            rm .\description.htm
+        "O" {            
+             $url = "http://darklighter.zenith.co.uk:8080/tfs/" + `
+                    "ZenithCollection/Accelerate%202.0/_workitems#_a=edit&id=" + $TFSItems[$i].Id
+            Start-Process $url
+            start-sleep 2            
+        }       
+        "L" {
+            $linkedWits = .\Get-TFSLinkedItems.ps1 $TFSItems[$i]
+            if ($linkedWits.Count -ne 0) {
+                .\Review-TFSItems.ps1 $linkedWits
+            }
         }
         default {
             $i++
-        }
+        }       
     }
+    If ($i -ge $TFSItems.Count) {
+            $i--
+        }
     
 } until($i -eq -1000) #Do until cancel
