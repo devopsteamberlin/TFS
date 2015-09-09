@@ -10,12 +10,6 @@ $project = $ws.Projects[$areaPath]
 
 $query = .\Get-TFSStoredQueryGUID.ps1 $project.QueryHierarchy $productBacklogQuery
 
-$items = $ws.query($query.querytext)
-
-$items | foreach {
-    Write-host $_.Title
-    Write-host $_.Status
-    read-host
-}
+$global:TFSBacklog = $ws.query($query.querytext)
 
 Pop-Location
