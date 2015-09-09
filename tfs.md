@@ -16,6 +16,8 @@
 	   
 		 >1: Some Title  Chris Sugden  Accelerate2.0/sprint 12   New        14
 		
+		- Is each item colour coded to help visually distinguish between items?
+		
 		- Can I choose to see the description?
 		
 		>[D] Description 

@@ -9,11 +9,26 @@ do {
     .\Review-TFSSingleItem $TFSItems[$i] $i $TFSItems.Count
     $choice = Read-Host
     switch($choice) {
-        "b" {
+        "B" {
             $i--
         }
-        "q" {
+        "Q" {
             exit
+        }
+        "G" {
+            Write-Host Enter the number you want to go to: 
+            [int]$i = read-host
+            $i--
+        }
+        "A" {
+            .\View-TFSAllItems.ps1
+            read-host
+        }
+        "D" {
+            $TFSItems[$i]["Description"] | Out-File .\description.htm
+            Invoke-Expression .\description.htm
+            start-sleep 2
+            rm .\description.htm
         }
         default {
             $i++
