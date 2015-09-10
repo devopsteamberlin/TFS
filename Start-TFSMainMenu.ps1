@@ -23,5 +23,8 @@ $choice = Read-Host
     1 {
         .\Start-TfsBacklogReview.ps1
     }
+    2 {
+        .\Start-TfsCurrentSprintReview.ps1   
+    }
 }
     
