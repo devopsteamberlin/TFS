@@ -12,4 +12,5 @@ $query = .\Get-TFSStoredQueryGUID.ps1 $project.QueryHierarchy $productBacklogQue
 
 $global:TFSBacklog = $ws.query($query.querytext)
 
-Pop-Location
+#Pop-Location
+.\Review-TFSItems.ps1 $global:TFSBacklog
