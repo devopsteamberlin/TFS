@@ -1,5 +1,5 @@
 ﻿cls
-Push-Location C:\dev\Scripts\tfs
+#Push-Location C:\dev\Scripts\tfs
 [string] $tfsServerCollection = "http://darklighter.zenith.co.uk:8080/tfs/ZenithCollection"
 [string] $areaPath = "Accelerate 2.0"
 [string] $currentSprintQuery = "Current Sprint"
