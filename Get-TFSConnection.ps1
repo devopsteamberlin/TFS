@@ -2,6 +2,11 @@
 [CmdletBinding()]
 Param ()
 
+[string] $tfsServerCollection = "http://darklighter.zenith.co.uk:8080/tfs/ZenithCollection"
+[string] $areaPath = "Accelerate 2.0"
+[string] $currentSprintQuery = "Current Sprint"
+[string] $productBacklogQuery = "Backlog PBIs"
+
 # Load Snapping
 if ((Get-PSSnapin -name Microsoft.TeamFoundation.PowerShell -Erroraction silentlycontinue) -eq $null)
 {
@@ -17,3 +22,5 @@ if ((Get-PSSnapin -name Microsoft.TeamFoundation.PowerShell -Erroraction silentl
 $teamProjectCollection = [Microsoft.TeamFoundation.Client.TfsTeamProjectCollectionFactory]::
                             GetTeamProjectCollection($tfsServerCollection)
 $teamProjectCollection
+
+
